@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates_presence_of :account_name, :on => :create, :message => "Account name must be unique and not blank" 
   validates_uniqueness_of  :email, :case_sensitive => false
   attr_accessor :account_name  # used to create a account
-  attr_accessible :name, :account_name, :email, :password, :password_confirmation, :loginable_token, :login, :roles
+  attr_accessible :name, :account_name, :account_id, :email, :password, :password_confirmation, :loginable_token, :login, :roles
   before_validation :create_account, :on => :create
   after_create :update_account_owner
   before_create :create_login
