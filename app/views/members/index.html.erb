@@ -1,31 +1,29 @@
 <h1>Listing members</h1>
+  <div class="index-list">
+  <table>
+    <tr>
+      <th>Login</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Sign in count</th>
+      <th>Roles</th>
+      <th>Actions</th>
+    </tr>
 
-<table>
-  <tr>
-    <th>Login</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Sign in count</th>
-    <th>Roles</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @members.each do |member| %>
-  <tr>
-    <td><%= member.login %></td>
-    <td><%= member.name %></td>
-    <td><%= member.email %></td>
-    <td><%= member.sign_in_count %></td>
-    <td><%= member.roles %></td>
-    <td><%= link_to 'Show', member %></td>
-    <td><%= link_to 'Edit', edit_member_path(member) %></td>
-    <td><%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+  <% @members.each do |member| %>
+    <tr>
+      <td><%= member.login %></td>
+      <td><%= member.name %></td>
+      <td><%= member.email %></td>
+      <td><%= member.sign_in_count %></td>
+      <td><%= member.roles %></td>
+      <td><%= link_to 'Show', member %>
+      <%= link_to 'Edit', edit_member_path(member) %>
+      <%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
 <br />
 
 <%= link_to 'New Member', new_member_path %>

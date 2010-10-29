@@ -45,3 +45,10 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+
+.index-list table { border: solid 1px #036; width: 100%; }
+.index-list td, .assmnt-list th { padding: 2px; }
+.index-list table tr { background: #fff; border-bottom: dotted 1px #85ACC9; }
+.index-list tr.alt { background: #f8f8f8; }
+.index-list tr.list-header { background: #cde; padding: 2px; border:solid 1px #85ACC9; border-bottom: dotted 1px #85ACC9; }
+.index-list th {font-weight: bold; border: solid 1px #036;padding:1px 2px;border-bottom:none; background: #e0e0e0;}

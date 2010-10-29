@@ -25,6 +25,9 @@ h3. The rules
 * Login is unique across all subdomains
 * A user who tries to login to another subdomain will be rejected
 * The site admin can edit members, which is a model inherited from user
+** Members link added to menubar if site admin.
+** Site admin can set roles on the edit page.
+** Roles implementation is just a simple text field and check with include?, so should be unique. Roll your own if you need more.
 * A user who logs into the root domain, will be signed off the root domain, redirected to their domain with a token, and logged in to their subdomain. 
 * There are no cross domain sessions, you can only start a session in your subdomain.
 * Attempts at url modifications (show member/user from another domain) should be rejected by CanCan
@@ -92,6 +95,8 @@ the best way to redirect a sign-in from the root domain to a users subdomain. It
 There are probably a few other areas where code can be improved. You are welcome to fork the project and add any improvements and send me a pull request. 
 
 If you add any features or different set of business rules, I may just point to your fork.
+
+While this is just a demo, I couldn't stand no CSS. I added just a little, mainly a reset and then a few things for lists etc.
 
 h2. License
 
