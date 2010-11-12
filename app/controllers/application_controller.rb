@@ -12,8 +12,12 @@ class ApplicationController < ActionController::Base
   def current_account
       if request.subdomains.first.present? && request.subdomains.first != "www"
         current_account = Account.find_by_name(request.subdomains.first)
+        if current_account.nil?
+          redirect_to root_url(:account => false, :alert => "Unknown Account/subdomain")
+        end
       else 
         current_account = nil
+        flash[:alert] = params[:alert] ||= nil  #take care of bad account from above redirect
       end
       return current_account
   end      

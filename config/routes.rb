@@ -1,5 +1,5 @@
 DeviseBCSDCanInvite::Application.routes.draw do
-  resources :members
+  resources :members, :except => [:new, :create]
 
   resources :roles
 

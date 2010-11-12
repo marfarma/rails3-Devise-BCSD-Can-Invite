@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.xml
   before_filter :require_user
+  before_filter :new
   load_and_authorize_resource
   before_filter :test
   def index
@@ -27,11 +28,9 @@ class MembersController < ApplicationController
   # GET /members/new
   # GET /members/new.xml
   def new
-    @member = Member.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @member }
+    #new is not valid route, if id = new, redirect
+    if params[:id] == "new"
+      redirect_to :members, :alert => "New action on members disabled, use invite"
     end
   end
 
@@ -40,21 +39,6 @@ class MembersController < ApplicationController
     #@member = Member.find(params[:id])
   end
 
-  # POST /members
-  # POST /members.xml
-  def create
-    @member = Member.new(params[:member])
-
-    respond_to do |format|
-      if @member.save
-        format.html { redirect_to(@member, :notice => 'Member was successfully created.') }
-        format.xml  { render :xml => @member, :status => :created, :location => @member }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @member.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 
   # PUT /members/1
   # PUT /members/1.xml
